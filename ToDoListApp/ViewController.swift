@@ -10,10 +10,16 @@ import UIKit
 
 class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate {
 var itemArray = ["To buy Book","Buy Notebook","Go To market"]
+    let defaults = UserDefaults.standard
+    
     @IBOutlet weak var toDoListTableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        if let items = defaults.array(forKey: "ToDoListArray") as? [String]{
+            itemArray = items
+        }
+       
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -56,6 +62,7 @@ var itemArray = ["To buy Book","Buy Notebook","Go To market"]
             
 //            print(textField.text!)
             self.itemArray.append(textField.text!)
+            self.defaults.set(self.itemArray, forKey: "ToDoListArray")
             self.toDoListTableView.reloadData()
             
         }
