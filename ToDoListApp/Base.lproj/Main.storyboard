@@ -47,7 +47,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" title="To Do List" id="sWs-vh-esu"/>
+                    <navigationItem key="navigationItem" title="To Do List" id="sWs-vh-esu">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="kXc-8c-Ldu">
+                            <connections>
+                                <action selector="addButtonPressed:" destination="BYZ-38-t0r" id="D6o-d2-5d8"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="toDoListTableView" destination="SGv-Wm-Zln" id="re1-zW-Da1"/>
                     </connections>

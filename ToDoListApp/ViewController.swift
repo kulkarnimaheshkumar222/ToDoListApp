@@ -47,6 +47,32 @@ var itemArray = ["To buy Book","Buy Notebook","Go To market"]
     }
     
     
+    @IBAction func addButtonPressed(_ sender: UIBarButtonItem) {
+        var textField = UITextField()
+        
+      let alert = UIAlertController(title: "Add New ToDo Item ", message: "", preferredStyle: .alert)
+        
+        let addAction = UIAlertAction(title: "Add Item", style: .default) { (addAction) in
+            
+//            print(textField.text!)
+            self.itemArray.append(textField.text!)
+            self.toDoListTableView.reloadData()
+            
+        }
+        alert.addAction(addAction)
+        
+        alert.addTextField { (alertTextField) in
+            alertTextField.placeholder = "Add New Item"
+            textField = alertTextField
+            print(alertTextField.text!)
+        }
+        
+        
+        self.present(alert, animated: true, completion: nil)
+        
+        
+        
+    }
     
     
     override func didReceiveMemoryWarning() {
